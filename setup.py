@@ -27,7 +27,7 @@ build_exe_options = {
 shortcut_table = [
     ('DesktopShortcut',           # Shortcut
      'DesktopFolder',             # Directory_
-     'FA Forever Launcher'        # Name
+     'FA Forever Launcher',       # Name
      'TARGETDIR',                 # Component_
      '[TARGETDIR]FAFLauncher.exe',# Target
      None,                        # Arguments
