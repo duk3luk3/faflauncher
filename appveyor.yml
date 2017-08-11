@@ -9,7 +9,7 @@ init:
 install:
   - "dir C:\\Miniconda36"
   - "git submodule update --init"
-  - "xcopy C:\\projects\\faflauncher\\PSCondaEnvs\\activate.ps1 C:\\Miniconda36\\Scripts\\activate.ps1 /I"
+  - "xcopy C:\\projects\\faflauncher\\PSCondaEnvs\\activate.ps1 C:\\Miniconda36\\Scripts /I"
   - ps: "C:\\Miniconda36\\Scripts\\activate.ps1"
   - "conda install -y tk"
   # dump version
