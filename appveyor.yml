@@ -7,12 +7,13 @@ init:
   - "ECHO %PYTHON% %APPVEYOR_REPO_TAG_NAME%"
 
 install:
-  - "%windir%\\system32\\cmd.exe \"/K\" C:\\Miniconda3\\Scripts\\activate.bat C:\\Miniconda3"
-  - "conda install -y tk"
+  - "C:\\Miniconda36\\Scripts\\conda.exe create -y -n faf pip"
+  - "C:\\Miniconda36\\Scripts\\activate.bat faf"
+  - "pip install cx_freeze"
   # dump version
   - git describe --tags --always
   - ps: "$env:faf_version = \"$(git describe --tags --always)\".Replace(' ','')"
-  - "%PYTHON%\\python setup.py bdist_msi"
+  - "python setup.py bdist_msi"
 
 artifacts:
   - path: '**\*.msi'
