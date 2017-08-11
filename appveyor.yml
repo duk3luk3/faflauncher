@@ -8,6 +8,7 @@ init:
 
 install:
   - "%PYTHON%\\Scripts\\pip install cx_Freeze"
+  - "conda install -y tk"
   # dump version
   - git describe --tags --always
   - ps: "$env:faf_version = \"$(git describe --tags --always)\".Replace(' ','')"
