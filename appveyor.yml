@@ -1,0 +1,30 @@
+environment:
+  matrix:
+    - PYTHON: "C:\\Python36"
+      PYWHEEL_INFIX: "cp36"
+
+init:
+  - "ECHO %PYTHON% %APPVEYOR_REPO_TAG_NAME%"
+
+install:
+  - "%PYTHON%\\Scripts\\pip install cx_Freeze"
+  # dump version
+  - git describe --tags --always
+  - ps: "$env:faf_version = \"$(git describe --tags --always)\".Replace(' ','')"
+  - "%PYTHON%\\python setup.py bdist_msi"
+
+artifacts:
+  - path: '**\*.msi'
+
+deploy:
+  - provider: GitHub
+    release: $(appveyor_build_version)
+    auth_token:
+      secure: "09WRxoB8lu9lPzuk3qYu0brKVQubLpnsS1Wdn49nYZYi5RDiva3z37eITcjtZkTD"
+    artifact: /.*\.msi/
+    draft: true
+    prerelease: true
+    on:
+      appveyor_repo_tag: true
+
+build: off
