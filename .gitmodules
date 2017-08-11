@@ -1,0 +1,3 @@
+[submodule "PSCondaEnvs"]
+	path = PSCondaEnvs
+	url = git@github.com:Liquidmantis/PSCondaEnvs.git
