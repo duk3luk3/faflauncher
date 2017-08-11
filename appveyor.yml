@@ -12,7 +12,9 @@ install:
   - "pip install cx_freeze"
   # dump version
   - git describe --tags --always
-  - ps: "$env:faf_version = \"$(git describe --tags --always)\".Replace(' ','')"
+  - ps: "$env:TCL_LIBRARY = \"C:\\Miniconda36\\envs\\faf\\tcl\""
+  - ps: "$env:TK_LIBRARY = \"C:\\Miniconda36\\envs\\faf\\tcl\""
+  - ps: "$env:faf_version = \"0.1.0\""
   - "python setup.py bdist_msi"
 
 artifacts:
