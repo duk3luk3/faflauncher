@@ -21,6 +21,7 @@ build_exe_options = {
     'optimize': 2,
     'silent': True,
     'include_files':[
+        'res',
         'c:/Miniconda36/envs/faf/DLLs/tcl86t.dll',
         'c:/Miniconda36/envs/faf/DLLs/tk86t.dll'],
     'zip_include_packages': ["*"],     # Place source files in zip archive, like in cx_freeze 4.3.4
